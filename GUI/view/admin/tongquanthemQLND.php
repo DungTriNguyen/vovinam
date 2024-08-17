@@ -14,12 +14,14 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
+
     <style>
-    <?php require('../../css/admin/sidebar.css');
-    require('../../css/admin/header_admin.css');
-    require('../../css/admin/footer_admin.css');
-    require('../../css/admin/QLND.css');
-    ?>
+        <?php require('../../css/admin/sidebar.css');
+        require('../../css/admin/header_admin.css');
+        require('../../css/admin/footer_admin.css');
+        require('../../css/admin/QLND.css');
+        ?>
     </style>
 </head>
 

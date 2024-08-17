@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
+
     <style>
         <?php require('../../css/admin/sidebar.css');
         require('../../css/admin/header_admin.css');

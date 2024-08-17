@@ -15,6 +15,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../../css/admin/tongquan.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
+
     <style>
         <?php require('../../css/admin/sidebar.css');
         require('../../css/admin/header_admin.css');

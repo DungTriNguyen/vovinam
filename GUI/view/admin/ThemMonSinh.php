@@ -14,12 +14,14 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
+
     <style>
-    <?php require('../../css/admin/sidebar.css');
-    require('../../css/admin/header_admin.css');
-    require('../../css/admin/footer_admin.css');
-    require('../../css/admin/QLND.css');
-    ?>
+        <?php require('../../css/admin/sidebar.css');
+        require('../../css/admin/header_admin.css');
+        require('../../css/admin/footer_admin.css');
+        require('../../css/admin/QLND.css');
+        ?>
     </style>
 </head>
 
@@ -198,51 +200,51 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    $(document).ready(function() {
-        // Load hình ảnh cho input anh3x4
-        $("#anh3x4").change(function() {
-            const files = $(this)[0].files;
-            const imagePreview = $("#imagePreviewB");
-            imagePreview.empty();
+        $(document).ready(function() {
+            // Load hình ảnh cho input anh3x4
+            $("#anh3x4").change(function() {
+                const files = $(this)[0].files;
+                const imagePreview = $("#imagePreviewB");
+                imagePreview.empty();
 
-            if (files.length > 0) {
-                for (let i = 0; i < files.length; i++) {
-                    const file = files[i];
-                    const reader = new FileReader();
+                if (files.length > 0) {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        const img = $("<img>")
-                            .attr("src", e.target.result)
-                            .addClass("img-thumbnail");
-                        imagePreview.append(img);
-                    };
-                    reader.readAsDataURL(file);
+                        reader.onload = function(e) {
+                            const img = $("<img>")
+                                .attr("src", e.target.result)
+                                .addClass("img-thumbnail");
+                            imagePreview.append(img);
+                        };
+                        reader.readAsDataURL(file);
+                    }
                 }
-            }
-        });
+            });
 
-        // Load hình ảnh cho input anhCCCD
-        $("#anhCCCD").change(function() {
-            const files = $(this)[0].files;
-            const imagePreview = $("#imagePreviewC");
-            imagePreview.empty();
+            // Load hình ảnh cho input anhCCCD
+            $("#anhCCCD").change(function() {
+                const files = $(this)[0].files;
+                const imagePreview = $("#imagePreviewC");
+                imagePreview.empty();
 
-            if (files.length > 0) {
-                for (let i = 0; i < files.length; i++) {
-                    const file = files[i];
-                    const reader = new FileReader();
+                if (files.length > 0) {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        const img = $("<img>")
-                            .attr("src", e.target.result)
-                            .addClass("img-thumbnail");
-                        imagePreview.append(img);
-                    };
-                    reader.readAsDataURL(file);
+                        reader.onload = function(e) {
+                            const img = $("<img>")
+                                .attr("src", e.target.result)
+                                .addClass("img-thumbnail");
+                            imagePreview.append(img);
+                        };
+                        reader.readAsDataURL(file);
+                    }
                 }
-            }
+            });
         });
-    });
     </script>
     <!-- <script src="../../Js/admin/sidebar.js?v=<?php echo $version ?>"></script> -->
     <script src="../../Js/admin/ThemMonSinh.js?v=<?php echo $version ?>"></script>
