@@ -1,0 +1,23 @@
+/* Footer */
+/* Footer */
+.footer {
+    height: max-content;
+    background-color: #949494;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.footer p:first-child {
+    margin-left: 15px;
+}
+
+.footer p:last-child {
+    margin-right: 15px;
+    
+}
+.footer p {
+    margin: 5px;
+}
+
