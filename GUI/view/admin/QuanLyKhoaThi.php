@@ -15,11 +15,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
-
     <style>
         <?php require('../../css/admin/sidebar.css');
         require('../../css/admin/header_admin.css');
         require('../../css/admin/footer_admin.css');
+        // require('../../css/admin/danhsachnguoidung2.css');
         require('../../css/admin/QLND.css');
 
         ?>
@@ -28,9 +28,7 @@
 
 <body>
     <div class="container-sb">
-        <div class="side-bar">
-            <?php require('./sidebar.php'); ?>
-        </div>
+        <div class="side-bar"><?php require('./sidebar.php'); ?></div>
         <div class="content">
             <div class="header">
                 <?php require('./header_admin.php'); ?>
@@ -175,7 +173,7 @@
 
     <!--  Xóa nhómm người dùng -->
     <div id="delete-User">
-        <!--   <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -195,7 +193,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 
     <!-- <script src="../../Js/admin/sidebar.js?v=<?php echo $version ?>"></script> -->

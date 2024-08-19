@@ -107,7 +107,7 @@ async function addObj(event) {
     let thoiGianSuaValue = document.getElementById("thoiGianSua").value.trim();
     let kichHoatValue = document.getElementById("kichHoat").value.trim();
     let soDienThoaiValue = document.getElementById("soDienThoai").value.trim();
-    // let maQuyenValue = document.getElementById("maQuyen").value.trim();
+    let maQuyenValue = document.getElementById("maQuyen").value.trim();
 
     function dinhdangDate(currentDate) {
       var year = currentDate.getFullYear();
