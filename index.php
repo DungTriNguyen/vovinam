@@ -1,2 +1,2 @@
 <?php
- header('Location: ./GUI/view/admin/Tongquan.php');
+header('Location: ./GUI/view/admin/TongquanQLNND.php');

@@ -17,12 +17,12 @@
     <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
 
     <style>
-        <?php require('../../css/admin/sidebar.css');
-        require('../../css/admin/header_admin.css');
-        require('../../css/admin/footer_admin.css');
-        require('../../css/admin/QLND.css');
+    <?php require('../../css/admin/sidebar.css');
+    require('../../css/admin/header_admin.css');
+    require('../../css/admin/footer_admin.css');
+    require('../../css/admin/QLND.css');
 
-        ?>
+    ?>
     </style>
 </head>
 
@@ -35,7 +35,7 @@
             </div>
             <div class="content-page">
                 <div>
-                    <h1>DANH SÁCH THI</h1>
+                    <h1>DANH SÁCH ĐĂNG KÝ THI</h1>
                     <a href="ThemMonSinhDangKyThi.php" class="add-new"><i class="fa fa-plus"></i> Thêm mới thí sinh
                         thi</a>
                 </div>

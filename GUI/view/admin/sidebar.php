@@ -73,8 +73,8 @@ $current_url = $_SERVER['REQUEST_URI'];
                 <li id="ketquathi-management-sidebar">
                     <a href="./QuanLyKetQuaThi.php"
                         class="<?php echo strpos($current_url, '/QuanLyKetQuaThi.php') !== false  || strpos($current_url, '/ThemMonSinhDangKyThi.php') !== false ? 'active' : ''; ?>"><span
-                            class="box-cont"><i class="fa-solid fa-money-bill"></i></span><span>Danh sách kết
-                            quả</span><i class="fas fa-angle-left"></i>
+                            class="box-cont"><i class="fa-solid fa-money-bill"></i></span><span>Danh sách đăng
+                            ký</span><i class="fas fa-angle-left"></i>
                     </a>
                     <!-- <ul class="ele-sub">
                         <li><a href="../admin/QuanLyKetQuaThi.php"><span class="box-cont"><i

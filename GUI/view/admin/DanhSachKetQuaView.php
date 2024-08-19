@@ -14,11 +14,11 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
     <style>
-        <?php require('../../css/admin/Judge-score.css');
-        require('../../css/admin/sidebar.css');
-        require('../../css/admin/header_admin.css');
-        require('../../css/admin/footer_admin.css');
-        ?>
+    <?php require('../../css/admin/Judge-score.css');
+    require('../../css/admin/sidebar.css');
+    require('../../css/admin/header_admin.css');
+    require('../../css/admin/footer_admin.css');
+    ?>
     </style>
 </head>
 
