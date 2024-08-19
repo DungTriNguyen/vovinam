@@ -195,9 +195,9 @@ async function loadData(data) {
     // let stringImg = i.anh3x4;
     // let arrImg = stringImg.split(" ");
     // let firstImg = stringImg[0];
-    // let anh3x4Array = JSON.parse(i.anh3x4); // Parse the JSON string to an array
-    // let anh3x4URL = anh3x4Array[0]; // Assuming you want to load the first image
-    let anh3x4URL = i.anh3x4;
+    let anh3x4Array = JSON.parse(i.anh3x4); // Parse the JSON string to an array
+    let anh3x4URL = anh3x4Array[0]; // Assuming you want to load the first image
+    // let anh3x4URL = i.anh3x4;
     //Môn sinh chưa đăng ký
     // console.log(maCauLacBo);
 
