@@ -37,9 +37,8 @@ class DSKQuaDAL extends AbstracDSKQ
                         cd.maCapDai,
                         SUM(ctpd.Diem) AS tongDiem,
                         ctkt.ghiChu AS GhiChu,
-                        CASE ctkt.ketQua
-                            WHEN 1 THEN 'Đạt'
-                            ELSE 'Không đạt'
+                        CASE WHEN SUM(ctpd.Diem) >= 30 
+                                THEN 'Đạt' ELSE 'Không đạt' 
                         END AS KetQua,
                         ctpd.GiamKhaoCham,
                         MAX(ctpd.ngayCham) AS NgayCham
@@ -91,8 +90,9 @@ class DSKQuaDAL extends AbstracDSKQ
         }
         return $array_list;
     }
-   
-    function getSelect() {
+
+    function getSelect()
+    {
         $queryKhoaThi = "SELECT maKhoaThi, tenKhoaThi FROM khoathi";
         $queryCapDai = "SELECT maCapDai, tenCapDai FROM capdai";
         $queryPhanThi = "SELECT maKyThuat, tenKyThuat FROM kythuat";
@@ -107,7 +107,5 @@ class DSKQuaDAL extends AbstracDSKQ
             'phanThi' => $stmtPhanThi->fetch_all(MYSQLI_ASSOC),
             'CauLacBo' => $stmtCLB->fetch_all(MYSQLI_ASSOC)
         ];
-    }    
+    }
 }
-
-

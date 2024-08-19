@@ -57,7 +57,8 @@ class DSKQBLL
         }
     }
 
-    function getSelect() {
+    function getSelect()
+    {
         $result = $this->DSKQuaDAL->getSelect();
         return $result;
     }
@@ -97,13 +98,13 @@ class DSKQBLL
 
                 // Kiểm tra nếu chuỗi $str xuất hiện trong bất kỳ trường nào của đối tượng
                 if (
-                    strpos(strtolower($maMonSinh), $str) !== false 
-                    || strpos(strtolower($hoTen), $str) !== false  
-                    || strpos(strtolower($maThe), $str) !== false 
-                    || strpos(strtolower($tenCauLacBo), $str) !== false 
-                    || strpos(strtolower($tenCapDai), $str) !== false 
-                    || strpos(strtolower($tenKhoaThi), $str) !== false
-                    || strpos(strtolower($KetQua), $str) !== false
+
+                    strpos(mb_strtolower($hoTen, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
+                    || strpos(mb_strtolower($maThe, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
+                    || strpos(mb_strtolower($tenCauLacBo, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
+                    || strpos(mb_strtolower($tenCapDai, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
+                    || strpos(mb_strtolower($tenKhoaThi, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
+                    || strpos(mb_strtolower($KetQua, 'UTF-8'), mb_strtolower($str, 'UTF-8')) !== false
                 ) {
                     $obj = array(
                         "maChiTietKetQua" => $maChiTietKetQua,
@@ -139,7 +140,6 @@ class DSKQBLL
         }
         return $result;
     }
-    
 }
 
 header('Content-Type: application/json');
@@ -163,6 +163,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $temp = $check->searchDSKQ($str);
             echo json_encode($temp);
             break;
-
     }
 }
