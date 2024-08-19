@@ -93,7 +93,7 @@ class GiamKhaoDAL extends AbstracGiamKhaoDAL
         }
         return $array_list;
     }
-    
+
     // sửa một đối tượng
     function updateObj($obj)
     {
@@ -104,6 +104,7 @@ class GiamKhaoDAL extends AbstracGiamKhaoDAL
             $TanPhap = $obj->getTanPhap(); // lấy giá trị từ đối tượng
             $ThuyetPhuc = $obj->getThuyetPhuc();
             $GhiChu = $obj->getGhiChu();
+            $NgayCham = $obj->getNgayCham();
             // Tính tổng điểm
             $Diem = $ThuocBai + $NhanhManh + $TanPhap + $ThuyetPhuc;
             // Xác định giá trị của KetQua
@@ -116,14 +117,16 @@ class GiamKhaoDAL extends AbstracGiamKhaoDAL
                            ThuyetPhuc = '$ThuyetPhuc', 
                             Diem = '$Diem',
                             KetQua = '$KetQua',
-                           GhiChu = '$GhiChu'                       
+                           GhiChu = '$GhiChu',
+                           NgayCham = NOW()                       
                        WHERE maCTPhieuDiem = '$maCTPhieuDiem'";
             return $this->actionSQL->query($string);
         } else {
             return false;
         }
-    }    
-    function getSelect() {
+    }
+    function getSelect()
+    {
         $queryKhoaThi = "SELECT maKhoaThi, tenKhoaThi FROM khoathi";
         $queryCapDai = "SELECT maCapDai, tenCapDai FROM capdai";
         $queryPhanThi = "SELECT maKyThuat, tenKyThuat FROM kythuat";
@@ -138,13 +141,5 @@ class GiamKhaoDAL extends AbstracGiamKhaoDAL
             'phanThi' => $stmtPhanThi->fetch_all(MYSQLI_ASSOC),
             'CauLacBo' => $stmtCLB->fetch_all(MYSQLI_ASSOC)
         ];
-    }    
-
-    
-
-    
-    
-
+    }
 }
-
-

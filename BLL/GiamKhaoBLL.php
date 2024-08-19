@@ -64,7 +64,7 @@ class GiamKhaoBLL
         $TanPhap = $obj->getTanPhap();
         $ThuyetPhuc = $obj->getThuyetPhuc();
         $GhiChu = $obj->getGhiChu();
-
+        $NgayCham = $obj->getNgayCham();
         // Tính tổng điểm
         $Diem = $ThuocBai + $NhanhManh + $TanPhap + $ThuyetPhuc;
 
@@ -74,7 +74,7 @@ class GiamKhaoBLL
         // Cập nhật thông tin vào đối tượng
         $obj->setDiem($Diem);
         $obj->setKetQua($KetQua);
-
+        $obj->setNgayCham($NgayCham);
         // Thực hiện cập nhật qua DAL
         $result = $this->GiamKhaoDAL->updateObj($obj);
         if ($result) {
@@ -88,6 +88,7 @@ class GiamKhaoBLL
                 "Diem" => $Diem,
                 "KetQua" => $KetQua,
                 "GhiChu" => $GhiChu,
+                "NgayCham" => $NgayCham,
                 "mess" => "success"
             );
         } else {
@@ -95,12 +96,11 @@ class GiamKhaoBLL
         }
     }
 
-    function getSelect() {
+    function getSelect()
+    {
         $result = $this->GiamKhaoDAL->getSelect();
         return $result;
     }
-
-
 }
 
 header('Content-Type: application/json');
@@ -114,12 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $temp = $check->getList();
             echo json_encode($temp);
             break;
-            case 'updateObj':
+        case 'updateObj':
             // Lấy dữ liệu đối tượng từ POST request
             $maCTPhieuDiem = $_POST['maCTPhieuDiem'];
             $ThuocBai = $_POST["ThuocBai"];
             $NhanhManh = $_POST["NhanhManh"];
-            $TanPhap = $_POST["TanPhap"]; 
+            $TanPhap = $_POST["TanPhap"];
             $ThuyetPhuc = $_POST["ThuyetPhuc"];
             $GhiChu = $_POST["GhiChu"];
             // Tạo một đối tượng PaymentDTO từ dữ liệu POST
@@ -154,6 +154,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $temp = $check->getSelect();
             echo json_encode($temp);
             break;
-
     }
 }
