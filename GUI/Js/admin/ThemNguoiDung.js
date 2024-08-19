@@ -6,7 +6,6 @@ function validateUser(
   tenValue,
   matKhauValue,
   xacNhanMatKhauValue,
-  anhDaiDienValue,
   loaiValue,
   // thoiGianTaoValue,
   // thoiGianSuaValue,
@@ -26,7 +25,6 @@ function validateUser(
     !tenValue ||
     !matKhauValue ||
     !xacNhanMatKhauValue ||
-    !anhDaiDienValue ||
     !loaiValue ||
     // !thoiGianTaoValue ||
     // !thoiGianSuaValue ||
@@ -121,6 +119,37 @@ async function addObj(event) {
       .toISOString()
       .slice(0, 10);
 
+    // let files3x4 = document.querySelector("#anhDaiDien").files;
+    // let image_3x4 = [];
+
+    // let imageCounter = 1; // Đếm biến từng ảnh
+    // var productFolderName = "AnhDaiDien-" + tenDangNhapValue; // Tạo tên thư mục mới cho album ảnh sản phẩm
+    // console.log(productFolderName);
+
+    // for (let i = 0; i < files3x4.length; i++) {
+    //   const file = files3x4[i];
+    //   const newFileName = "AnhDaiDien-3x4-" + imageCounter + ".jpg"; // Tạo tên mới cho file ảnh
+    //   var destinationPath =
+    //     "../../view/admin/upload.php?productFolder=" +
+    //     encodeURIComponent(productFolderName);
+    //   imageCounter++; // Tăng số thứ tự của ảnh trong sản phẩm
+
+    //   let string = `../image/AnhDaiDien/${productFolderName}/${newFileName}`;
+    //   const reader = new FileReader();
+    //   reader.onload = (function (file, newFileName) {
+    //     return function (event) {
+    //       const fileData = event.target.result;
+
+    //       // Thực hiện việc copy file và đổi tên vào đường dẫn đích
+    //       saveFile(destinationPath, newFileName, fileData, productFolderName);
+    //     };
+    //   })(file, newFileName, productFolderName);
+
+    //   reader.readAsArrayBuffer(file);
+
+    //   image_3x4.push(string);
+    // }
+
     // let passWordValue = document.getElementById("passWord").value.trim();
     // let confirmPassWordValue = document
     //   .getElementById("confirmPassWord")
@@ -144,7 +173,6 @@ async function addObj(event) {
         tenValue,
         matKhauValue,
         xacNhanMatKhauValue,
-        anhDaiDienValue,
         loaiValue,
         // thoiGianTaoValue,
         // thoiGianSuaValue,

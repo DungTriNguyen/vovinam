@@ -860,6 +860,14 @@ async function updateObj(
     let maCapDaiValue = document.getElementById(maCapDai).value.trim();
     let maCaulacBoValue = document.getElementById(maCaulacBo).value.trim();
 
+    //Ảnh
+    // let files3x4 = document.querySelector("#anh3x4").files;
+    // let filesCCCD = document.querySelector("#anhCCCD").files;
+
+    let image_3x4 = [];
+    let image_cccd = [];
+    image_3x4.push(anh3x4Value);
+    image_cccd.push(anhCCCDValue);
     // if (
     //   !usernameValue ||
     //   !passWordValue ||
@@ -955,9 +963,9 @@ async function updateObj(
           "&cccd=" +
           encodeURIComponent(cccdValue) +
           "&anhCCCD=" +
-          encodeURIComponent(anhCCCDValue) +
+          encodeURIComponent(JSON.stringify(image_cccd)) +
           "&anh3x4=" +
-          encodeURIComponent(anh3x4Value) +
+          encodeURIComponent(JSON.stringify(image_3x4)) +
           "&ngayCapCCCD=" +
           encodeURIComponent(ngayCapCCCDValue) +
           "&noiCapCCCD=" +

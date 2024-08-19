@@ -16,11 +16,11 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
     <style>
-        <?php require('../../css/admin/sidebar.css');
-        require('../../css/admin/header_admin.css');
-        require('../../css/admin/footer_admin.css');
-        require('../../css/admin/QLND.css');
-        ?>
+    <?php require('../../css/admin/sidebar.css');
+    require('../../css/admin/header_admin.css');
+    require('../../css/admin/footer_admin.css');
+    require('../../css/admin/QLND.css');
+    ?>
     </style>
 </head>
 
@@ -69,8 +69,11 @@
                             </div>
                             <div class="input2">
                                 <div class="form-group">
-                                    <label for="nhap_lai_mat_khau">Ảnh đại diện</label>
-                                    <input type="text" id="anhDaiDien" name="anhDaiDien" placeholder="ảnh đại diện">
+                                    <!-- <label for="nhap_lai_mat_khau">Ảnh đại diện</label> -->
+                                    <input type="hidden" id="anhDaiDien" name="anhDaiDien" placeholder="ảnh đại diện">
+                                    <!-- <input type="file" class="form-control" id="anhDaiDien" name="anhDaiDien"
+                                        accept="image/jpeg, image/png" multiple placeholder="Nhập file ảnh đại diện">
+                                    <div id="imagePreviewB" style="padding-top:2px;"></div> -->
                                 </div>
                                 <div class="form-group">
                                     <label for="nhap_lai_mat_khau">Loại</label>
