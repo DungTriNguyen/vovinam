@@ -16,7 +16,7 @@ async function getListObj() {
 
     let data = await response.json();
     if (!Array.isArray(data)) {
-      throw new Error('Unexpected data format');
+      throw new Error("Unexpected data format");
     }
 
     console.log("Dữ liệu PD", data);
@@ -29,63 +29,62 @@ async function getListObj() {
 
 async function getSelect() {
   try {
-      let response = await fetch("../../../BLL/GiamKhaoBLL.php", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: "function=" + encodeURIComponent("getSelect"),
-      });
+    let response = await fetch("../../../BLL/GiamKhaoBLL.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: "function=" + encodeURIComponent("getSelect"),
+    });
 
-      if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-      let data = await response.json();
-      console.log("Dữ liệu select nhận được từ API:", data);
+    let data = await response.json();
+    console.log("Dữ liệu select nhận được từ API:", data);
 
-       // Update select options with received data
-    const selectKhoaThi = document.getElementById('khoa-thi');
-    const selectCapDai = document.getElementById('cap-dai-du-thi');
-    const selectPhanThi = document.getElementById('phan-thi');
+    // Update select options with received data
+    const selectKhoaThi = document.getElementById("khoa-thi");
+    const selectCapDai = document.getElementById("cap-dai-du-thi");
+    const selectPhanThi = document.getElementById("phan-thi");
 
     selectKhoaThi.innerHTML = '<option value="">Chọn Khóa Thi</option>';
     selectCapDai.innerHTML = '<option value="">Chọn Cấp Đai</option>';
     selectPhanThi.innerHTML = '<option value="">Chọn Phần Thi</option>';
 
-    data['khoaThi'].forEach(option => {
-      const newOption = document.createElement('option');
-      newOption.value = option['maKhoaThi'];
-      newOption.text = option['tenKhoaThi'];
+    data["khoaThi"].forEach((option) => {
+      const newOption = document.createElement("option");
+      newOption.value = option["maKhoaThi"];
+      newOption.text = option["tenKhoaThi"];
       selectKhoaThi.appendChild(newOption);
     });
 
-    data['capDai'].forEach(option => {
-      const newOption = document.createElement('option');
-      newOption.value = option['maCapDai'];
-      newOption.text = option['tenCapDai'];
+    data["capDai"].forEach((option) => {
+      const newOption = document.createElement("option");
+      newOption.value = option["maCapDai"];
+      newOption.text = option["tenCapDai"];
       selectCapDai.appendChild(newOption);
     });
 
-    data['phanThi'].forEach(option => {
-      const newOption = document.createElement('option');
-      newOption.value = option['maKyThuat'];
-      newOption.text = option['tenKyThuat'];
+    data["phanThi"].forEach((option) => {
+      const newOption = document.createElement("option");
+      newOption.value = option["maKyThuat"];
+      newOption.text = option["tenKyThuat"];
       selectPhanThi.appendChild(newOption); // typo: should be selectPhanThi
     });
-        
-    } catch (error) {
-        console.error(error);
-    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // Hàm lọc dữ liệu theo các tiêu chí
 async function btnLoc() {
   try {
     // Lấy giá trị từ các phần chọn
-    const khoaThi = document.getElementById('khoa-thi').value;
-    const capDai = document.getElementById('cap-dai-du-thi').value;
-    const phanThi = document.getElementById('phan-thi').value;
+    const khoaThi = document.getElementById("khoa-thi").value;
+    const capDai = document.getElementById("cap-dai-du-thi").value;
+    const phanThi = document.getElementById("phan-thi").value;
 
     // Gửi yêu cầu đến API
     let response = await fetch("../../../BLL/GiamKhaoBLL.php", {
@@ -105,10 +104,10 @@ async function btnLoc() {
     console.log("Dữ liệu lọc", data);
 
     if (!Array.isArray(data)) {
-      throw new Error('Unexpected data format');
+      throw new Error("Unexpected data format");
     }
     // Lọc dữ liệu dựa trên các tiêu chí
-    const filteredData = data.filter(item => {
+    const filteredData = data.filter((item) => {
       return (
         (khoaThi === "" || item.maKhoaThi === khoaThi) &&
         (capDai === "" || item.maCapDai === capDai) &&
@@ -119,13 +118,12 @@ async function btnLoc() {
     // Hiển thị dữ liệu đã lọc vào bảng
     await showTablePD(filteredData);
     loadPage();
-
   } catch (error) {
-    console.error('Lỗi khi lọc dữ liệu:', error);
+    console.error("Lỗi khi lọc dữ liệu:", error);
   }
 }
 // Gán hàm btnLoc vào sự kiện click của nút "Lọc"
-document.getElementById('locdanhsach').addEventListener('click', btnLoc);
+document.getElementById("locdanhsach").addEventListener("click", btnLoc);
 
 async function showTablePD(data) {
   console.log("Dữ liệu PD trong loadData:", data);
@@ -200,29 +198,25 @@ async function showTablePD(data) {
                     <div class="mb-3">
                         <label for="ThuocBai" class="form-label">Thuộc bài (5đ)</label>
                         <div class="input-group">
-                        <input type="number" class="form-control" id="${i.maCTPhieuDiem}-${i.ThuocBai}"
-                            value="${i.ThuocBai}" name="ThuocBai" min="0" max="5" aria-describedby="togglePassword">  
+                        <input type="number" class="form-control" data-maCTPhieuDiem="${i.maCTPhieuDiem}" data-name="ThuocBai" value="${i.ThuocBai}" name="ThuocBai" min="0" max="5">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="NhanhManh" class="form-label">Nhanh mạnh (2đ)</label>
                         <div class="input-group">
-                        <input type="number" class="form-control" id="${i.maCTPhieuDiem}-${i.NhanhManh}"
-                            value="${i.NhanhManh}" name="NhanhManh" min="0" max="2" aria-describedby="togglePassword">  
+                        <input type="number" class="form-control" data-maCTPhieuDiem="${i.maCTPhieuDiem}" data-name="NhanhManh" value="${i.NhanhManh}" name="NhanhManh" min="0" max="2">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="TanPhap" class="form-label">Tấn pháp (2đ)</label>
                         <div class="input-group">
-                        <input type="number" class="form-control" id="${i.maCTPhieuDiem}-${i.TanPhap}"
-                            value="${i.TanPhap}" name="TanPhap" min="0" max="2" aria-describedby="togglePassword">  
+                        <input type="number" class="form-control" data-maCTPhieuDiem="${i.maCTPhieuDiem}" data-name="TanPhap" value="${i.TanPhap}" name="TanPhap" min="0" max="2"> 
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="ThuyetPhuc" class="form-label">Thuyết phục (1đ)</label>
                         <div class="input-group">
-                        <input type="number" class="form-control" id="${i.maCTPhieuDiem}-${i.ThuyetPhuc}"
-                            value="${i.ThuyetPhuc}" name="ThuyetPhuc" min="0" max="1" aria-describedby="togglePassword">  
+                        <input type="number" class="form-control" data-maCTPhieuDiem="${i.maCTPhieuDiem}" data-name="ThuyetPhuc" value="${i.ThuyetPhuc}" name="ThuyetPhuc" min="0" max="1">   
                         </div>
                     </div>                    
                     <div class="mb-3">
@@ -237,18 +231,19 @@ async function showTablePD(data) {
                     </div>                    
                     <div class="mb-3">
                         <label for="GhiChu" class="form-label">Ghi chú</label>
-                        <input type="text" class="form-control" id="${i.maCTPhieuDiem}-${i.GhiChu}" value="${i.GhiChu}"
-                            name="GhiChu">
+                        <input type="text" class="form-control" data-maCTPhieuDiem="${i.maCTPhieuDiem}" data-name="GhiChu" value="${i.GhiChu}" name="GhiChu">   
                     </div>
                     
                     <div style="text-align:right;">
                         <button type="submit" data-bs-dismiss="modal" class="btn btn-primary"
-                            onclick="updateObj('${i.maCTPhieuDiem}',
-                             '${i.maCTPhieuDiem}-${i.ThuocBai}',
-                             '${i.maCTPhieuDiem}-${i.NhanhManh}',
-                             '${i.maCTPhieuDiem}-${i.TanPhap}',
-                             '${i.maCTPhieuDiem}-${i.ThuyetPhuc}',
-                             '${i.maCTPhieuDiem}-${i.GhiChu}',event)">Lưu thay đổi
+                            data-ma-ct-phieu-diem="${i.maCTPhieuDiem}"
+                            data-thuoc-bai="${i.maCTPhieuDiem}-${i.ThuocBai}"
+                            data-nhanh-manh="${i.maCTPhieuDiem}-${i.NhanhManh}"
+                            data-tan-phap="${i.maCTPhieuDiem}-${i.TanPhap}"
+                            data-thuyet-phuc="${i.maCTPhieuDiem}-${i.ThuyetPhuc}"
+                            data-ghi-chu="${i.maCTPhieuDiem}-${i.GhiChu}"
+                            onclick="updateObj(this, event)">
+                            Lưu thay đổi
                         </button>
                     </div>
                 </form>
@@ -263,83 +258,96 @@ async function showTablePD(data) {
   }
   container1.innerHTML = result1;
   container.innerHTML = result;
-
 }
 //Sửa một đối tượng
-async function updateObj(
-  maCTPhieuDiem,
-  ThuocBai,
-  NhanhManh,
-  TanPhap,
-  ThuyetPhuc,
-  GhiChu,
-  event
-) {
+async function updateObj(button, event) {
   event.preventDefault();
-  if (true) {
-    let thuocbaiValue = document.getElementById(ThuocBai).value.trim();
-    let nhanhmanhValue = document.getElementById(NhanhManh).value.trim();
-    let tanphapValue = document.getElementById(TanPhap).value.trim();
-    let thuyetphucValue = document.getElementById(ThuyetPhuc).value.trim();
-    let ghichuValue = document.getElementById(GhiChu).value.trim();
-    console.log(thuocbaiValue);
-    console.log(thuyetphucValue);
-      // Kiểm tra ràng buộc giá trị
-    if (thuocbaiValue < 0 || thuocbaiValue > 5 ||
-        nhanhmanhValue < 0 || nhanhmanhValue > 2 ||
-        tanphapValue < 0 || tanphapValue > 2 ||
-        thuyetphucValue < 0 || thuyetphucValue > 1) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Dữ liệu không hợp lệ',
-        text: 'Vui lòng nhập giá trị trong phạm vi cho phép.'
-      });
-      return;
-    }
-    try {
-      // Gọi AJAX để sửa đối tượng
-      let response = await fetch("../../../BLL/GiamKhaoBLL.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body:
+
+  // Lấy các giá trị từ các thẻ input trong form hiện tại
+  const form = button.closest("form");
+  const maCTPhieuDiem = button.dataset.maCtPhieuDiem;
+  const thuocBai = form.querySelector(
+    `input[data-maCTPhieuDiem="${maCTPhieuDiem}"][data-name="ThuocBai"]`
+  ).value;
+  const nhanhManh = form.querySelector(
+    `input[data-maCTPhieuDiem="${maCTPhieuDiem}"][data-name="NhanhManh"]`
+  ).value;
+  const tanPhap = form.querySelector(
+    `input[data-maCTPhieuDiem="${maCTPhieuDiem}"][data-name="TanPhap"]`
+  ).value;
+  const thuyetPhuc = form.querySelector(
+    `input[data-maCTPhieuDiem="${maCTPhieuDiem}"][data-name="ThuyetPhuc"]`
+  ).value;
+  const ghiChu = form.querySelector(
+    `input[data-maCTPhieuDiem="${maCTPhieuDiem}"][data-name="GhiChu"]`
+  ).value;
+
+  // Gọi API hoặc thực hiện xử lý khác với các giá trị đã lấy
+  console.log({
+    maCTPhieuDiem,
+    thuocBai,
+    nhanhManh,
+    tanPhap,
+    thuyetPhuc,
+    ghiChu,
+  });
+
+  // Kiểm tra ràng buộc giá trị
+  if (
+    thuocBai < 0 ||
+    thuocBai > 5 ||
+    nhanhManh < 0 ||
+    nhanhManh > 2 ||
+    tanPhap < 0 ||
+    tanPhap > 2 ||
+    thuyetPhuc < 0 ||
+    thuyetPhuc > 1
+  ) {
+    Swal.fire({
+      icon: "error",
+      title: "Dữ liệu không hợp lệ",
+      text: "Vui lòng nhập giá trị trong phạm vi cho phép.",
+    });
+    return;
+  }
+
+  try {
+    // Gọi AJAX để sửa đối tượng
+    let response = await fetch("../../../BLL/GiamKhaoBLL.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body:
         "function=" +
         encodeURIComponent("updateObj") +
         "&maCTPhieuDiem=" +
         encodeURIComponent(maCTPhieuDiem) +
         "&ThuocBai=" +
-        encodeURIComponent(thuocbaiValue) +
+        encodeURIComponent(thuocBai) +
         "&NhanhManh=" +
-        encodeURIComponent(nhanhmanhValue) +
+        encodeURIComponent(nhanhManh) +
         "&TanPhap=" +
-        encodeURIComponent(tanphapValue) +
+        encodeURIComponent(tanPhap) +
         "&ThuyetPhuc=" +
-        encodeURIComponent(thuyetphucValue) +
+        encodeURIComponent(thuyetPhuc) +
         "&GhiChu=" +
-        encodeURIComponent(ghichuValue),
-      });
-      let data = await response.json();
-      console.log("data sửa",data);
-      if (data.mess === "success") {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Sửa thông tin thành công",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        await getListObj();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Sửa không thành công",
-      text: "Không đủ quyền hàng",
+        encodeURIComponent(ghiChu),
     });
+    let data = await response.json();
+    console.log("data sửa", data);
+    if (data.mess === "success") {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Sửa thông tin thành công",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      await getListObj();
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -357,7 +365,7 @@ async function DanhSachKQ() {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    
+
     // Ghi lại dữ liệu trả về từ API
     let data = await response.json();
     console.log("Dữ liệu dskq nhận được từ API:", data);
@@ -368,80 +376,84 @@ async function DanhSachKQ() {
   }
 }
 
+function loadItem(thisPage, limit) {
+  // tính vị trí bắt đầu và kêt thúc
+  let beginGet = limit * (thisPage - 1);
+  let endGet = limit * thisPage - 1;
 
+  // lấy tất cả các dòng dữ liệu có trong bảng
+  let all_data_rows = document.querySelectorAll("#danhsachChamThi > tr");
 
-  function loadItem(thisPage, limit) {
-    // tính vị trí bắt đầu và kêt thúc
-    let beginGet = limit * (thisPage - 1);
-    let endGet = limit * thisPage - 1;
-  
-    // lấy tất cả các dòng dữ liệu có trong bảng
-    let all_data_rows = document.querySelectorAll("#danhsachChamThi > tr");
-  
-    all_data_rows.forEach((item, index) => {
-      if (index >= beginGet && index <= endGet) {
-        item.style.display = "table-row";
-      } else {
-        item.style.display = "none";
-      }
-    });
-  
-    // hàm tính có bao nhieu nút chuyển trang
-    listPage(thisPage, limit, all_data_rows);
-    // loadPage();
-  }
-
-  function listPage(thisPage, limit, all_data_rows) {
-    let result = "";
-    let count = Math.ceil(all_data_rows.length / limit);
-    // thêm nút prev
-  
-    if (thisPage != 1) {
-      result += `<li class="page-item" onclick="loadItem(${thisPage - 1}, ${limit})"><a class="page-link">Previous</a></li>`;
+  all_data_rows.forEach((item, index) => {
+    if (index >= beginGet && index <= endGet) {
+      item.style.display = "table-row";
     } else {
-      result += `<li class="page-item disabled"><a class="page-link">Previous</a></li>`;
+      item.style.display = "none";
     }
-  
-    // tính xem có bao nhieu nút
-  
-    // lấy container chứa nút phân trang
-    let container = document.getElementById("Pagination");
-  
-    for (let i = 1; i <= count; i++) {
-      let string = `<li class="page-item" onclick="loadItem(${i},${limit})"><a class="page-link">${i}</a></li>`;
-      if (i == thisPage) {
-        string = `<li class="page-item active" onclick="loadItem(${i},${limit})"><a class="page-link">${i}</a></li>`;
-      }
-      result += string;
-    }
-  
-    // thêm nút next
-  
-    if (thisPage != count) {
-      result += `<li class="page-item" onclick="loadItem(${thisPage + 1}, ${limit})"><a class="page-link">Next</a></li>`;
-    } else {
-      result += `<li class="page-item disabled"><a class="page-link">Next</a></li>`;
-    }
-  
-    container.innerHTML = result;
-  }
-
-  function loadPage() {
-    let listItems = document.querySelectorAll("#Pagination li");
-    listItems.forEach(function (item) {
-      if (item.classList.contains("active")) {
-        let activePageNumber = parseInt(item.querySelector("a").textContent.trim());
-        console.log("Trang đang active: " + activePageNumber);
-        loadItem(activePageNumber, 4);
-      }
-    });
-  }
-
-  window.addEventListener("load", async function () {
-    // Thực hiện các hàm bạn muốn sau khi trang web đã tải hoàn toàn, bao gồm tất cả các tài nguyên như hình ảnh, stylesheet, v.v.
-    console.log("Trang Giám Khảo đã load hoàn toàn");
-    //const userId = // lấy giá trị userId từ trang web của bạn, ví dụ từ URL hoặc input field
-    await getListObj();
-    getSelect();
-    loadItem(1, 4);
   });
+
+  // hàm tính có bao nhieu nút chuyển trang
+  listPage(thisPage, limit, all_data_rows);
+  // loadPage();
+}
+
+function listPage(thisPage, limit, all_data_rows) {
+  let result = "";
+  let count = Math.ceil(all_data_rows.length / limit);
+  // thêm nút prev
+
+  if (thisPage != 1) {
+    result += `<li class="page-item" onclick="loadItem(${
+      thisPage - 1
+    }, ${limit})"><a class="page-link">Previous</a></li>`;
+  } else {
+    result += `<li class="page-item disabled"><a class="page-link">Previous</a></li>`;
+  }
+
+  // tính xem có bao nhieu nút
+
+  // lấy container chứa nút phân trang
+  let container = document.getElementById("Pagination");
+
+  for (let i = 1; i <= count; i++) {
+    let string = `<li class="page-item" onclick="loadItem(${i},${limit})"><a class="page-link">${i}</a></li>`;
+    if (i == thisPage) {
+      string = `<li class="page-item active" onclick="loadItem(${i},${limit})"><a class="page-link">${i}</a></li>`;
+    }
+    result += string;
+  }
+
+  // thêm nút next
+
+  if (thisPage != count) {
+    result += `<li class="page-item" onclick="loadItem(${
+      thisPage + 1
+    }, ${limit})"><a class="page-link">Next</a></li>`;
+  } else {
+    result += `<li class="page-item disabled"><a class="page-link">Next</a></li>`;
+  }
+
+  container.innerHTML = result;
+}
+
+function loadPage() {
+  let listItems = document.querySelectorAll("#Pagination li");
+  listItems.forEach(function (item) {
+    if (item.classList.contains("active")) {
+      let activePageNumber = parseInt(
+        item.querySelector("a").textContent.trim()
+      );
+      console.log("Trang đang active: " + activePageNumber);
+      loadItem(activePageNumber, 4);
+    }
+  });
+}
+
+window.addEventListener("load", async function () {
+  // Thực hiện các hàm bạn muốn sau khi trang web đã tải hoàn toàn, bao gồm tất cả các tài nguyên như hình ảnh, stylesheet, v.v.
+  console.log("Trang Giám Khảo đã load hoàn toàn");
+  //const userId = // lấy giá trị userId từ trang web của bạn, ví dụ từ URL hoặc input field
+  await getListObj();
+  getSelect();
+  loadItem(1, 4);
+});

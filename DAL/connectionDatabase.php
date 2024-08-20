@@ -7,7 +7,7 @@ class ConnectionDatabase
        private $username = "root";
        private $password = "";
        // private $databaseName = "website_sells_clothes_and_bags";
-       private $databaseName = "vvnam_db";
+       private $databaseName = "vovi_db";
 
        private $conn = null;
 
