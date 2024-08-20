@@ -105,7 +105,7 @@ async function addObj(event) {
       Swal.fire({
         icon: "error",
         title: "Thêm không thành công",
-        text: "Bị trùng dữ liệu",
+        text: "Bị trùng dữ liệu hoặc dữ liệu ngày không hợp lệ",
       });
     }
   } catch (error) {
