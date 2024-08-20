@@ -304,7 +304,7 @@ async function loadData(data) {
                               value="${i.soDienThoai}" name="soDienThoai">
                       </div>
                       <div class="mb-3">
-                          <label for="anhDaiDien" class="form-label">Ảnh đại diện</label>
+                          
                           <input type="hidden" class="form-control" id="${
                             i.tenDangNhap
                           }-${i.anhDaiDien}"
