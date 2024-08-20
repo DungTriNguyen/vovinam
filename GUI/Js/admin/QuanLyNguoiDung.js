@@ -596,7 +596,6 @@ async function updateObj(
       !hoValue ||
       !tenValue ||
       !matKhauValue ||
-      !anhDaiDienValue ||
       !loaiValue ||
       !kichHoatValue ||
       !soDienThoaiValue
