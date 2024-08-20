@@ -195,9 +195,9 @@ async function loadData(data) {
     // let stringImg = i.anh3x4;
     // let arrImg = stringImg.split(" ");
     // let firstImg = stringImg[0];
-    let anh3x4Array = JSON.parse(i.anh3x4); // Parse the JSON string to an array
-    let anh3x4URL = anh3x4Array[0]; // Assuming you want to load the first image
-    // let anh3x4URL = i.anh3x4;
+    // let anh3x4Array = JSON.parse(i.anh3x4); // Parse the JSON string to an array
+    // let anh3x4URL = anh3x4Array[0]; // Assuming you want to load the first image
+    let anh3x4URL = i.anh3x4;
     //Môn sinh chưa đăng ký
     // console.log(maCauLacBo);
 
@@ -864,10 +864,10 @@ async function updateObj(
     // let files3x4 = document.querySelector("#anh3x4").files;
     // let filesCCCD = document.querySelector("#anhCCCD").files;
 
-    let image_3x4 = [];
-    let image_cccd = [];
-    image_3x4.push(anh3x4Value);
-    image_cccd.push(anhCCCDValue);
+    // let image_3x4 = [];
+    // let image_cccd = [];
+    // image_3x4.push(anh3x4Value);
+    // image_cccd.push(anhCCCDValue);
     // if (
     //   !usernameValue ||
     //   !passWordValue ||
@@ -963,9 +963,9 @@ async function updateObj(
           "&cccd=" +
           encodeURIComponent(cccdValue) +
           "&anhCCCD=" +
-          encodeURIComponent(JSON.stringify(image_cccd)) +
+          encodeURIComponent(anhCCCDValue) +
           "&anh3x4=" +
-          encodeURIComponent(JSON.stringify(image_3x4)) +
+          encodeURIComponent(anh3x4Value) +
           "&ngayCapCCCD=" +
           encodeURIComponent(ngayCapCCCDValue) +
           "&noiCapCCCD=" +
