@@ -206,9 +206,9 @@ class QuanLyKetQuaThiBLL
                 $capDaiHienTai = $item->getCapDaiHienTai();
                 $capDaiDuThi = $item->getCapDaiDuThi();
                 $ketQua = $item->getKetQua();
-                $trangThaiHoSo = $item->getTrangThaiHoSo();
                 $ghiChu = $item->getGhiChu();
                 $ngayCham = $item->getNgayCham();
+                $fileDuThi = $item->getFileDuThi();
                 // Kiểm tra nếu chuỗi $str xuất hiện trong bất kỳ trường nào của đối tượng
                 if (
                     strpos(strtolower($maKetQuaThi), $str) !== false || strpos(strtolower($tenMonSinh), $str) !== false  ||
@@ -221,9 +221,9 @@ class QuanLyKetQuaThiBLL
                         "capDaiHienTai" => $capDaiHienTai,
                         "capDaiDuThi" => $capDaiDuThi,
                         "ketQua" => $ketQua,
-                        "trangThaiHoSo" => $trangThaiHoSo,
                         "ghiChu" => $ghiChu,
                         "ngayCham" => $ngayCham,
+                        "fileDuThi" => $fileDuThi,
                         "mess" => "success"
                     );
                     array_push($result, $obj);

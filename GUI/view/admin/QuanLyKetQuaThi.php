@@ -17,12 +17,12 @@
     <link rel="shortcut icon" href="../../image/logo-fascon.png" type="image/x-icon">
 
     <style>
-    <?php require('../../css/admin/sidebar.css');
-    require('../../css/admin/header_admin.css');
-    require('../../css/admin/footer_admin.css');
-    require('../../css/admin/QLND.css');
+        <?php require('../../css/admin/sidebar.css');
+        require('../../css/admin/header_admin.css');
+        require('../../css/admin/footer_admin.css');
+        require('../../css/admin/QLND.css');
 
-    ?>
+        ?>
     </style>
 </head>
 
@@ -41,9 +41,9 @@
                 </div>
                 <div class="tim-kiem">
                     <form action="QuanLyKetQuaThi.php" method="get">
-                        <input type="text" name="tenTimKiem" id="input-search-account"
+                        <input type="hidden" name="tenTimKiem" id="input-search-account"
                             placeholder="Nhập dữ liệu tìm kiếm thí sinh">
-                        <button class="search" type="submit">Tìm kiếm</button>
+                        <!-- <button class="search" type="submit">Tìm kiếm</button> -->
                     </form>
                 </div>
                 <table class="danh-sach">

@@ -11,11 +11,11 @@ $current_url = $_SERVER['REQUEST_URI'];
     <div class="bar-content">
         <div class="sub-menu">
             <ul class="nav-sb">
-                <li>
+                <!-- <li>
                     <a href="./Tongquan.php"
                         class="<?php echo (strpos($current_url, '/Tongquan.php') !== false) ? 'active' : ''; ?>"><span
                             class="box-cont"><i class="fas fa-tachometer-alt"></i></span><span>Tổng quan</span></a>
-                </li>
+                </li> -->
 
 
                 <li id="user-group-sidebar">

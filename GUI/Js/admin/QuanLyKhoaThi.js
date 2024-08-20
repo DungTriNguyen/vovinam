@@ -616,7 +616,7 @@ async function updateObj(
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Sửa thông tin người dùng thành công",
+          title: "Sửa thông tin khóa thi thành công",
           showConfirmButton: false,
           timer: 1500,
         });
